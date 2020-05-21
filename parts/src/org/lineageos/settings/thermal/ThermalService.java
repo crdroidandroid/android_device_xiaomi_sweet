@@ -61,6 +61,21 @@ public class ThermalService extends Service {
     }
 
     @Override
+    public void onDestroy() {
+        if (DEBUG) Log.d(TAG, "Destroying service");
+        unregisterReceiver();
+        try {
+            ActivityTaskManager.getService().unregisterTaskStackListener(mTaskListener);
+        } catch (RemoteException e) {
+            // Do nothing
+        }
+        mThermalUtils.setDefaultThermalProfile();
+        mThermalUtils.resetTouchModes();
+        mThermalUtils = null;
+        super.onDestroy();
+    }
+
+    @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         if (DEBUG) Log.d(TAG, "Starting service");
         return START_STICKY;
@@ -81,6 +96,10 @@ public class ThermalService extends Service {
         IntentFilter filter = new IntentFilter();
         filter.addAction(Intent.ACTION_SCREEN_OFF);
         this.registerReceiver(mIntentReceiver, filter);
+    }
+
+    private void unregisterReceiver() {
+        this.unregisterReceiver(mIntentReceiver);
     }
 
     private final TaskStackListener mTaskListener = new TaskStackListener() {

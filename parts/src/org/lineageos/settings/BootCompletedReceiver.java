@@ -40,7 +40,8 @@ public class BootCompletedReceiver extends BroadcastReceiver {
         DiracUtils.initialize(context);
 
         // Thermal Profiles
-        ThermalUtils.startService(context);
+        ThermalUtils.initialize(context);
+
         // DC Dimming
         boolean dcDimmingEnabled = sharedPrefs.getBoolean(DC_DIMMING_ENABLE_KEY, false);
         FileUtils.writeLine(DC_DIMMING_NODE, dcDimmingEnabled ? "1" : "0");
