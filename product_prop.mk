@@ -1,3 +1,7 @@
+# Bluetooth
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.bluetooth.disableabsvol=true
+
 # Camera
 PRODUCT_PROPERTY_OVERRIDES += \
     vendor.camera.aux.packagelist=org.codeaurora.snapcam,com.android.camera,org.lineageos.snap,com.android.camera2 \
