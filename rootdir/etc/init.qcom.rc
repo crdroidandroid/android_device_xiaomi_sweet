@@ -8,3 +8,9 @@ on boot
     # Allow system to modify exposure adjustment state
     chown system system /sys/devices/platform/soc/soc:qcom,dsi-display/msm_fb_ea_enable
     chmod 0660 /sys/devices/platform/soc/soc:qcom,dsi-display/msm_fb_ea_enable
+
+on late-fs
+    start surfaceflinger
+    start bootanim
+    start vendor.hwcomposer-2-4
+    start vendor.qti.hardware.display.allocator
