@@ -27,6 +27,8 @@
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
     <uses-permission android:name="android.permission.VIBRATE" />
 
+    <protected-broadcast android:name="com.android.systemui.doze.pulse" />
+
     <application
         android:icon="@mipmap/ic_launcher"
         android:label="@string/device_settings_app_name"
@@ -122,6 +124,22 @@
                        android:value="com.android.settings.category.ia.sound" />
             <meta-data android:name="com.android.settings.summary"
                        android:resource="@string/haptic_summary" />
+        </activity>
+
+        <service android:name=".doze.DozeService"
+                 android:permission="XiaomiDozeService"
+                 android:exported="true">
+        </service>
+
+        <activity
+            android:name=".doze.DozeSettingsActivity"
+            android:exported="false"
+            android:label="@string/ambient_display_title"
+            android:theme="@style/Theme.SubSettingsBase.Expressive">
+            <intent-filter>
+                <action android:name="org.lineageos.settings.device.DOZE_SETTINGS" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
         </activity>
 
     </application>
