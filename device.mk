@@ -45,7 +45,8 @@ TARGET_SCREEN_WIDTH := 1080
 
 # Camera
 PRODUCT_PACKAGES += \
-    Snap
+    Snap \
+    GoogleCamerago
 
 # Device Settings
 PRODUCT_PACKAGES += \
