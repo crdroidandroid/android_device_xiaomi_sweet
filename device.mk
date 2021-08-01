@@ -51,6 +51,9 @@ PRODUCT_PACKAGES += \
     GalleryGo \
     GoogleCamerago
 
+PRODUCT_PACKAGES += \
+    CutoutRingServiceSweet
+
 # Device Settings
 PRODUCT_PACKAGES += \
     XiaomiParts
