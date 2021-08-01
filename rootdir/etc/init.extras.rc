@@ -1,0 +1,4 @@
+on boot
+    # FPS Info Tile
+    chown system graphics /sys/class/drm/sde-crtc-0/measured_fps
+    chmod 0666 /sys/class/drm/sde-crtc-0/measured_fps
