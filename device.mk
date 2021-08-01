@@ -47,6 +47,9 @@ TARGET_SCREEN_WIDTH := 1080
 PRODUCT_PACKAGES += \
     Snap
 
+PRODUCT_PACKAGES += \
+    CutoutRingServiceSweet
+
 # Device Settings
 PRODUCT_PACKAGES += \
     XiaomiParts
