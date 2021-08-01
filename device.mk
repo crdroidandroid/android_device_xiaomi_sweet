@@ -43,9 +43,9 @@ PRODUCT_PACKAGES += \
 TARGET_SCREEN_HEIGHT := 2400
 TARGET_SCREEN_WIDTH := 1080
 
-# Camera
+# Camera and stuff
 PRODUCT_PACKAGES += \
-    Snap \
+    GalleryGo \
     GoogleCamerago
 
 # Device Settings
