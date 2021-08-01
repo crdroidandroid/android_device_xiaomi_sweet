@@ -124,4 +124,8 @@
     <integer-array translatable="false" name="config_ambientThresholdsOfPeakRefreshRate">
         <item>200000</item>
     </integer-array>
+
+    <!-- True if the display hardware only has brightness buckets rather than a full range of
+         backlight values -->
+    <bool name="config_displayBrightnessBucketsInDoze">true</bool>
 </resources>
