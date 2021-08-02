@@ -17,9 +17,6 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
 # Get non-open-source specific aspects
 $(call inherit-product, vendor/xiaomi/sweet/sweet-vendor.mk)
 
-# OnePlus Launcher
-$(call inherit-product, vendor/oplauncher/OPLauncher.mk)
-
 # The first api level, device has been commercially launched on.
 PRODUCT_SHIPPING_API_LEVEL := 30
 
