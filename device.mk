@@ -43,9 +43,9 @@ PRODUCT_PACKAGES += \
 TARGET_SCREEN_HEIGHT := 2400
 TARGET_SCREEN_WIDTH := 1080
 
-# Camera and stuff
+# Camera
 PRODUCT_PACKAGES += \
-    GalleryGo \
+    Snap \
     GoogleCamerago
 
 PRODUCT_PACKAGES += \
