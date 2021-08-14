@@ -16,6 +16,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
 
 # Get non-open-source specific aspects
 $(call inherit-product, vendor/xiaomi/sweet/sweet-vendor.mk)
+$(call inherit-product, vendor/miuicamera/config.mk)
 
 # The first api level, device has been commercially launched on.
 PRODUCT_SHIPPING_API_LEVEL := 30
