@@ -51,6 +51,8 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     CutoutRingServiceSweet
 
+TARGET_DISABLE_MIMOJI_FILES := true
+
 # Device Settings
 PRODUCT_PACKAGES += \
     XiaomiParts
