@@ -60,11 +60,11 @@
             <defaultOutputDevice>Speaker</defaultOutputDevice>
             <mixPorts>
                 <mixPort name="primary output" role="source" flags="AUDIO_OUTPUT_FLAG_FAST|AUDIO_OUTPUT_FLAG_PRIMARY">
-                    <profile name="" format="AUDIO_FORMAT_PCM_16_BIT"
+                    <profile name="" format="AUDIO_FORMAT_PCM_24_BIT_PACKED"
                              samplingRates="48000" channelMasks="AUDIO_CHANNEL_OUT_STEREO"/>
                 </mixPort>
                 <mixPort name="raw" role="source"
-                        flags="AUDIO_OUTPUT_FLAG_FAST">
+                        flags="AUDIO_OUTPUT_FLAG_FAST|AUDIO_OUTPUT_FLAG_RAW">
                     <profile name="" format="AUDIO_FORMAT_PCM_16_BIT"
                              samplingRates="48000" channelMasks="AUDIO_CHANNEL_OUT_STEREO"/>
                 </mixPort>
@@ -359,9 +359,9 @@
                 <route type="mix" sink="voice_rx"
                        sources="Telephony Rx"/>
                 <route type="mix" sink="primary input"
-                       sources="Wired Headset Mic,BT SCO Headset Mic,FM Tuner,USB Device In,USB Headset In,Telephony Rx"/>
+                       sources="Built-In Mic,Built-In Back Mic,Wired Headset Mic,BT SCO Headset Mic,FM Tuner,USB Device In,USB Headset In,Telephony Rx"/>
                 <route type="mix" sink="voip_tx"
-                       sources="Built-In Mic,Built-In Back Mic,BT SCO Headset Mic,USB Device In,USB Headset In"/>
+                       sources="Built-In Mic,Built-In Back Mic,Wired Headset Mic,BT SCO Headset Mic,USB Device In,USB Headset In"/>
                 <route type="mix" sink="surround_sound"
                        sources="Built-In Mic,Built-In Back Mic"/>
                 <route type="mix" sink="usb_surround_sound"
