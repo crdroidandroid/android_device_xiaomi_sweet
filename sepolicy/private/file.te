@@ -4,3 +4,6 @@ type sysfs_graphics, sysfs_type, fs_type;
 
 # FPS Info Tile
 type vendor_sysfs_graphics, sysfs_type, fs_type;
+
+# Smart Charging
+type vendor_sysfs_battery_supply, sysfs_type, fs_type;
