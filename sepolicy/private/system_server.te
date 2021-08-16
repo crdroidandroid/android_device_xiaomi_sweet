@@ -1,1 +1,4 @@
 get_prop(system_server, vendor_camera_prop);
+
+# Smart Charging
+allow system_server vendor_sysfs_battery_supply:file {write read open getattr};
