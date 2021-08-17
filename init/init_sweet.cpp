@@ -102,7 +102,6 @@ void vendor_load_properties() {
     region = GetProperty("ro.boot.hwc", "GLOBAL");
     sku = GetProperty("ro.boot.product.hardware.sku","pro");
 
-    std::string model;
     std::string device;
     std::string fingerprint;
     std::string description;
@@ -110,23 +109,20 @@ void vendor_load_properties() {
     std::string mod_device;
 
     if (region == "GLOBAL") {
-        model = "M2101K6G";
-        device = "sweet";
+        device = "sweet"; // M2101K6G
         fingerprint = "Redmi/sweet_eea/sweet:11/RKQ1.200826.002/V12.0.10.0.RKFEUXM:user/release-keys";
         description = "sweet_eea-user 11 RKQ1.200826.002 V12.0.10.0.RKFEUXM release-keys";
         marketname = "Redmi Note 10 Pro";
         mod_device = "sweet_eea_global";
     } else if (region == "INDIA") {
         if (sku == "std") {
-            model = "M2101K6P";
-            device = "sweetin";
+            device = "sweetin"; // M2101K6P
             fingerprint = "Redmi/sweetin/sweetin:11/RKQ1.200826.002/V12.0.6.0.RKFINXM:user/release-keys";
             description = "sweetin-user 11 RKQ1.200826.002 V12.0.6.0.RKFINXM release-keys";
             marketname = "Redmi Note 10 Pro";
             mod_device = "sweetin_in_global";
         } else {
-                model = "M2101K6I";
-                device = "sweetin";
+                device = "sweetin"; // M2101K6I
                 fingerprint = "Redmi/sweetinpro/sweetin:11/RKQ1.200826.002/V12.0.6.0.RKFINXM:user/release-keys";
                 description = "sweetinpro-user 11 RKQ1.200826.002 V12.0.6.0.RKFINXM release-keys";
                 marketname = "Redmi Note 10 Pro Max";
@@ -136,7 +132,7 @@ void vendor_load_properties() {
 
     set_ro_build_prop("fingerprint", fingerprint);
     set_ro_product_prop("device", device);
-    set_ro_product_prop("model", model);
+    set_ro_product_prop("model", marketname);
     property_override("ro.product.marketname", marketname.c_str());
     property_override("ro.build.description", description.c_str());
     if (mod_device != "") {
