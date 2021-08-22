@@ -23,6 +23,10 @@ TARGET_SCREEN_WIDTH := 1080
 PRODUCT_AAPT_CONFIG := normal
 PRODUCT_AAPT_PREF_CONFIG := xhdpi
 
+# Display
+PRODUCT_PACKAGES += \
+    libsdmcore-shim
+
 # fastbootd
 PRODUCT_PACKAGES += \
     fastbootd
