@@ -381,45 +381,23 @@
 
         </module>
 
-        <!-- A2DP Audio HAL -->
+        <!-- Bluetooth Input Audio HAL Audio Policy Configuration file -->
         <module name="a2dp" halVersion="2.0">
             <mixPorts>
-                <mixPort name="a2dp output" role="source"/>
                 <mixPort name="a2dp input" role="sink">
                     <profile name="" format="AUDIO_FORMAT_PCM_16_BIT"
-                             samplingRates="44100,48000" channelMasks="AUDIO_CHANNEL_IN_MONO,AUDIO_CHANNEL_IN_STEREO"/>
+                             samplingRates="44100,48000"
+                             channelMasks="AUDIO_CHANNEL_IN_MONO,AUDIO_CHANNEL_IN_STEREO"/>
                 </mixPort>
             </mixPorts>
-
             <devicePorts>
-                <devicePort tagName="BT A2DP Out" type="AUDIO_DEVICE_OUT_BLUETOOTH_A2DP" role="sink" encodedFormats="AUDIO_FORMAT_LHDC">
-                    <profile name="" format="AUDIO_FORMAT_PCM_16_BIT"
-                            samplingRates="44100,48000,96000"
-                            channelMasks="AUDIO_CHANNEL_OUT_STEREO"/>
-                </devicePort>
-                <devicePort tagName="BT A2DP Headphones" type="AUDIO_DEVICE_OUT_BLUETOOTH_A2DP_HEADPHONES" role="sink" encodedFormats="AUDIO_FORMAT_LHDC">
-                    <profile name="" format="AUDIO_FORMAT_PCM_16_BIT"
-                            samplingRates="44100,48000,96000"
-                            channelMasks="AUDIO_CHANNEL_OUT_STEREO"/>
-                </devicePort>
-                <devicePort tagName="BT A2DP Speaker" type="AUDIO_DEVICE_OUT_BLUETOOTH_A2DP_SPEAKER" role="sink" encodedFormats="AUDIO_FORMAT_LHDC">
-                    <profile name="" format="AUDIO_FORMAT_PCM_16_BIT"
-                            samplingRates="44100,48000,96000"
-                            channelMasks="AUDIO_CHANNEL_OUT_STEREO"/>
-                </devicePort>
                 <devicePort tagName="BT A2DP In" type="AUDIO_DEVICE_IN_BLUETOOTH_A2DP" role="source">
                     <profile name="" format="AUDIO_FORMAT_PCM_16_BIT"
-                             samplingRates="44100,48000" channelMasks="AUDIO_CHANNEL_IN_MONO,AUDIO_CHANNEL_IN_STEREO"/>
+                             samplingRates="44100,48000"
+                             channelMasks="AUDIO_CHANNEL_IN_MONO,AUDIO_CHANNEL_IN_STEREO"/>
                 </devicePort>
             </devicePorts>
-
             <routes>
-                <route type="mix" sink="BT A2DP Out"
-                        sources="a2dp output"/>
-                <route type="mix" sink="BT A2DP Headphones"
-                        sources="a2dp output"/>
-                <route type="mix" sink="BT A2DP Speaker"
-                        sources="a2dp output"/>
                 <route type="mix" sink="a2dp input"
                        sources="BT A2DP In"/>
             </routes>
@@ -447,6 +425,26 @@
 
         <!-- Remote Submix Audio HAL -->
         <xi:include href="/vendor/etc/r_submix_audio_policy_configuration.xml"/>
+
+        <!-- Bluetooth Audio HAL Audio Policy Configuration file -->
+        <module name="bluetooth" halVersion="2.0">
+            <mixPorts>
+                <!-- Hearing AIDs Audio Ports -->
+                <mixPort name="hearing aid output" role="source">
+                    <profile name="" format="AUDIO_FORMAT_PCM_16_BIT"
+                             samplingRates="24000,16000"
+                             channelMasks="AUDIO_CHANNEL_OUT_STEREO"/>
+                </mixPort>
+            </mixPorts>
+            <devicePorts>
+                <!-- Hearing AIDs Audio Ports -->
+                <devicePort tagName="BT Hearing Aid Out" type="AUDIO_DEVICE_OUT_HEARING_AID" role="sink"/>
+            </devicePorts>
+            <routes>
+                <route type="mix" sink="BT Hearing Aid Out"
+                       sources="hearing aid output"/>
+            </routes>
+        </module>
 
     </modules>
     <!-- End of Modules section -->
