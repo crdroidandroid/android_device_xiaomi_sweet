@@ -1,0 +1,13 @@
+//
+// Copyright (C) 2021 crDroid Android Project
+//
+// SPDX-License-Identifier: Apache-2.0
+//
+
+cc_library_static {
+    name: "init_xiaomi_sweet",
+    srcs: ["init_xiaomi_sweet.cpp"],
+    whole_static_libs: ["//device/xiaomi/sm6150-common:libinit_xiaomi_sm6150"],
+    include_dirs: ["system/core/init"],
+    recovery_available: true,
+}

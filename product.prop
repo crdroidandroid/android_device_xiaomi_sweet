@@ -1,0 +1,10 @@
+ro.miui.notch=1
+
+#In the taper mode, low voltage charging
+persist.vendor.cp.taper_term_mv=7000
+
+#Set fcc_main to 400mA to avoid the risk of vph_pwr droop
+persist.vendor.cp.fcc_main_ua=400000
+
+#set vfloat_offset_uv
+persist.vendor.cp.qc3p5_vfloat_offset_uv=110000
