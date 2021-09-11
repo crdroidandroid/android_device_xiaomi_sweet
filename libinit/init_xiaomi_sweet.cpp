@@ -37,13 +37,26 @@ static const variant_info_t sweet_eea_info = {
 
 static const variant_info_t sweetin_info = {
     .hwc_value = "INDIA",
-    .sku_value = "",
+    .sku_value = "std",
 
     .brand = "Redmi",
     .device = "sweetin",
     .marketname = "Redmi Note 10 Pro",
     .model = "Redmi Note 10 Pro",
-    .build_fingerprint = "Redmi/sweetin/sweetin:11/RKQ1.200826.002/V12.5.4.0.RKFINXM:user/release-keys",
+    .build_fingerprint = "Redmi/sweetin/sweetin:11/RKQ1.200826.002/V12.5.8.0.RKFINXM:user/release-keys",
+
+    .nfc = false,
+};
+
+static const variant_info_t sweetinpro_info = {
+    .hwc_value = "INDIA",
+    .sku_value = "pro",
+
+    .brand = "Redmi",
+    .device = "sweetinpro",
+    .marketname = "Redmi Note 10 Pro Max",
+    .model = "Redmi Note 10 Pro Max",
+    .build_fingerprint = "Redmi/sweetinpro/sweetin:11/RKQ1.200826.002/V12.5.8.0.RKFINXM:user/release-keys",
 
     .nfc = false,
 };
@@ -52,6 +65,7 @@ static const std::vector<variant_info_t> variants = {
     sweet_global_info,
     sweet_eea_info,
     sweetin_info,
+    sweetinpro_info,
 };
 
 void vendor_load_properties() {
