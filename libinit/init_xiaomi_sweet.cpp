@@ -53,7 +53,7 @@ static const variant_info_t sweetinpro_info = {
     .sku_value = "pro",
 
     .brand = "Redmi",
-    .device = "sweetinpro",
+    .device = "sweetin",
     .marketname = "Redmi Note 10 Pro Max",
     .model = "Redmi Note 10 Pro Max",
     .build_fingerprint = "Redmi/sweetinpro/sweetin:11/RKQ1.200826.002/V12.5.8.0.RKFINXM:user/release-keys",

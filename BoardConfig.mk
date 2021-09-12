@@ -19,7 +19,7 @@ TARGET_PRODUCT_PROP += $(DEVICE_PATH)/product.prop
 TARGET_VENDOR_PROP += $(DEVICE_PATH)/vendor.prop
 
 # Assert
-TARGET_OTA_ASSERT_DEVICE := sweet,sweetin,sweetinpro
+TARGET_OTA_ASSERT_DEVICE := sweet,sweetin
 
 # Audio
 TARGET_PROVIDES_AUDIO_EXTNS := true
