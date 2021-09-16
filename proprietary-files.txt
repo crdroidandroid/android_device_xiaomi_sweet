@@ -327,7 +327,9 @@ vendor/lib64/vendor.qti.hardware.camera.device@2.0.so
 vendor/lib64/vendor.qti.hardware.camera.device@3.5.so
 
 # Charger
+vendor/bin/batteryd
 vendor/bin/batterysecret
+vendor/etc/init/init.batteryd.rc
 vendor/etc/init/init.batterysecret.rc
 
 # Consumer IR
