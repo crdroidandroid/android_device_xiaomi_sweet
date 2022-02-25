@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2021 crDroid Android Project
+# Copyright (C) 2021-2022 crDroid Android Project
 #
 # SPDX-License-Identifier: Apache-2.0
 #
@@ -19,6 +19,6 @@ PRODUCT_MANUFACTURER := Xiaomi
 PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
-    PRIVATE_BUILD_DESC="sweet-user 11 RKQ1.200826.002 V12.5.4.0.RKFEUXM release-keys"
+    PRIVATE_BUILD_DESC="sweet-user 12 RKQ1.210614.002 V13.0.4.0.SKFMIXM release-keys"
 
-BUILD_FINGERPRINT := Redmi/sweet_global/sweet:11/RKQ1.200826.002/V12.5.4.0.RKFMIXM:user/release-keys
+BUILD_FINGERPRINT := Redmi/sweet_global/sweet:12/RKQ1.210614.002/V13.0.4.0.SKFMIXM:user/release-keys
