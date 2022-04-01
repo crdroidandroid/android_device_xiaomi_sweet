@@ -6,6 +6,7 @@ vendor.audio.adm.buffering.ms=6
 ro.vendor.audio.us.type=mius
 vendor.audio.feature.compr_voip.enable=false
 vendor.voice.path.for.pcm.voip=false
+persist.vendor.audio.misound.disable=true
 persist.vendor.audio.voicecall.speaker.stereo=true
 
 # ACDB
