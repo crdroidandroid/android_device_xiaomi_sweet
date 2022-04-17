@@ -311,6 +311,7 @@ vendor/firmware/CAMERA_ICP.elf
 
 # Camera prebuilt interfaces
 lib64/libcameraservice.so
+system_ext/lib64/vendor.qti.hardware.camera.device@3.5.so
 vendor/bin/hw/android.hardware.camera.provider@2.4-service_64
 vendor/lib/hw/android.hardware.camera.provider@2.4-impl.so
 vendor/lib/android.hardware.camera.provider@2.4-external.so
