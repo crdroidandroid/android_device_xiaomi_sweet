@@ -357,7 +357,8 @@ vendor/etc/qdcm_calib_data_nt36672c_fhd_plus_video_mode_dsi_panel.xml
 vendor/etc/qdcm_calib_data_rm69298_amoled_fhd+_cmd_mode_dsi_truly_panel.xml
 vendor/etc/qdcm_calib_data_rm69298_amoled_fhd+_video_mode_dsi_truly_panel.xml
 vendor/etc/qdcm_calib_data_sharp_1080p_120hz_dual_dsi_cmd_mode_panel.xml
-vendor/etc/qdcm_calib_data_xiaomi_k6_38_0c_0a_fhd_dsc_video_dsi_panel.xml|0312596bfd7f63ec845a8daa64f135d64f8050e6
+vendor/etc/qdcm_calib_data_xiaomi_k6_38_0c_0a_fhd_dsc_video_dsi_panel.xml|0161d0800884d4e871154897646fec0199d97d5e
+vendor/etc/qdcm_calib_data_xiaomi_k6_38_0e_0b_fhd_dsc_video_dsi_panel.xml|4595171fbaa0cc92d4083ec08626af92d14232ce
 
 # Fingerprint
 vendor/lib64/hw/fingerprint.fortsense.so:vendor/lib64/hw/fingerprint.fortsense.sm6150.so
@@ -559,6 +560,7 @@ vendor/etc/elliptic_sensor.xml
 # Touchscreen
 vendor/etc/hbtp/loader.cfg
 vendor/etc/dsi_k6_38_0c_0a_fhd_dsc_video_display_mi.xml
+vendor/etc/dsi_k6_38_0e_0b_fhd_dsc_video_display_mi.xml
 vendor/firmware/k6_test_limits_test_sensor_1.csv
 vendor/lib64/libhbtpclient.so
 vendor/lib64/libhbtpdsp.so
