@@ -1,13 +1,17 @@
 # Audio
+persist.vendor.audio.delta.refresh=true
 persist.vendor.audio.hifi=false
-persist.vendor.audio.ring.filter.mask=0
-ro.vendor.audio.sdk.fluencetype=fluence
-vendor.audio.adm.buffering.ms=6
-ro.vendor.audio.us.type=mius
-vendor.audio.feature.compr_voip.enable=false
-vendor.voice.path.for.pcm.voip=false
 persist.vendor.audio.misound.disable=true
+persist.vendor.audio.ring.filter.mask=0
 persist.vendor.audio.voicecall.speaker.stereo=true
+ro.vendor.audio.sdk.fluencetype=fluence
+ro.vendor.audio.camera.loopback.support=true
+ro.vendor.audio.fm.disable.spk=false
+ro.vendor.audio.us.type=mius
+vendor.audio.adm.buffering.ms=6
+vendor.audio.feature.compr_voip.enable=false
+vendor.audio.mic.status=off
+vendor.voice.path.for.pcm.voip=false
 
 # ACDB
 persist.vendor.audio.calfile0=/vendor/etc/acdbdata/Forte/Forte_Speaker_cal.acdb
