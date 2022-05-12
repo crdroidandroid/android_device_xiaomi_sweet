@@ -43,5 +43,10 @@ ro.vendor.display.ad.hdr_calib_data=/vendor/etc/hdr_config.cfg
 ro.vendor.display.sensortype=2
 
 # Display Refresh Rate
+ro.surface_flinger.set_display_power_timer_ms=1000
+ro.surface_flinger.set_idle_timer_ms=500
+ro.surface_flinger.set_touch_timer_ms=700
+ro.surface_flinger.use_content_detection_for_refresh_rate=true
 vendor.display.disable_metadata_dynamic_fps=1
+vendor.display.idle_time=1100
 vendor.display.skip_refresh_rate_change=1
