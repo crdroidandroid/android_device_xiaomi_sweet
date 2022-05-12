@@ -148,9 +148,9 @@ vendor/lib64/libxmi_high_dynamic_range.so
 vendor/lib64/libxml2_vendor.so
 vendor/lib64/mibokeh_712_opencl.bin
 
-# Camera - from sweetin-user 11 RKQ1.200826.002 V12.5.8.0.RKFINXM release-keys
-vendor/lib64/camera/com.qti.tuned.sweet_ofilm_s5kgw3_wide.bin|ca2ed16c7a93bc452becf8ff8f29db1c52bf411d
-vendor/lib64/camera/com.qti.tuned.sweet_sunny_s5kgw3_wide.bin|db7480734847ad2c1e34dda2cb1c0d718001d314
+# Camera - from sweetin-user 12 RKQ1.210614.002 V13.0.3.0.SKFINXM release-keys
+vendor/lib64/camera/com.qti.tuned.sweet_ofilm_s5kgw3_wide.bin|e199e2efe02578979c129e969bde3d2739b30517
+vendor/lib64/camera/com.qti.tuned.sweet_sunny_s5kgw3_wide.bin|bbb06ffce56cff50b61601b2e6f3ed9c2960663d
 
 # Camera (arcsoft)
 vendor/lib64/libarcsat.so
