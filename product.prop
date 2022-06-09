@@ -8,3 +8,9 @@ persist.vendor.cp.fcc_main_ua=400000
 
 #set vfloat_offset_uv
 persist.vendor.cp.qc3p5_vfloat_offset_uv=110000
+
+# Fluence
+ro.qc.sdk.audio.fluencetype=none
+persist.audio.fluence.voicecall=true
+persist.audio.fluence.voicerec=false
+persist.audio.fluence.speaker=true
