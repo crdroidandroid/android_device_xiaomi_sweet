@@ -8,7 +8,6 @@ ro.vendor.audio.camera.loopback.support=true
 ro.vendor.audio.fm.disable.spk=false
 ro.vendor.audio.us.type=mius
 vendor.audio.adm.buffering.ms=6
-vendor.audio.feature.compr_voip.enable=false
 vendor.audio.mic.status=off
 vendor.voice.path.for.pcm.voip=false
 
