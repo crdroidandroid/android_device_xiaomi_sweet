@@ -399,13 +399,6 @@ vendor/etc/libnfc-nxp.conf
 vendor/etc/libnfc-nxp_RF.conf
 vendor/lib/libpn553_fw.so
 
-# Media (stagefright)
-vendor/lib/vndk/libstagefright_foundation.so
-vendor/lib/vndk/libstagefright_omx.so
-vendor/lib/libdeccfg.so
-vendor/lib/libstagefright_soft_ac4dec.so
-vendor/lib/libstagefright_soft_ddpdec.so
-
 # Sensors
 vendor/etc/sensors/hals.conf
 vendor/lib64/libnotifyaudiohal.so
