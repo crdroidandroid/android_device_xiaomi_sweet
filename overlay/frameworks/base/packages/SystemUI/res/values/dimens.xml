@@ -17,6 +17,7 @@
 */
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
     <!-- the padding on the top of the statusbar (usually 0) -->
     <dimen name="status_bar_padding_top">5dp</dimen>
 
@@ -25,12 +26,6 @@
 
     <!-- the padding on the end of the statusbar -->
     <dimen name="status_bar_padding_end">3dp</dimen>
-
-    <!-- Padding on the start of the quick statusbar (not top-most statusbar) -->
-    <dimen name="qs_header_start_padding">5dp</dimen>
-
-    <!-- Padding on the end of the quick statusbar (not top-most statusbar) -->
-    <dimen name="qs_header_end_padding">5dp</dimen>
 
     <!-- Location on the screen of the center of the physical power button. This is a reasonable
     default that should be overridden by device-specific overlays. -->
@@ -41,12 +36,4 @@
      For devices with sensors on the back of the device, this corresponds to the location on the
      screen directly in front of the sensor. -->
     <dimen name="physical_fingerprint_sensor_center_screen_location_y">1100px</dimen>
-
-    <!-- Location of physical charger port -->
-    <dimen name="physical_charger_port_location_normalized_x">0.5</dimen>
-    <dimen name="physical_charger_port_location_normalized_y">1</dimen>
-
-    <!-- Location on the screen of the center of the physical volume up/down buttons -->
-    <dimen name="physical_volume_down_button_center_screen_location_y">1150px</dimen>
-    <dimen name="physical_volume_up_button_center_screen_location_y">950px</dimen>
 </resources>
