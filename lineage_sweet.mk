@@ -19,6 +19,6 @@ PRODUCT_MANUFACTURER := Xiaomi
 PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
-    PRIVATE_BUILD_DESC="sweet-user 11 RKQ1.200826.002 V12.5.4.0.RKFEUXM release-keys"
+    PRIVATE_BUILD_DESC="sweet-user 11 RKQ1.200826.002 V12.5.9.0.RKFMIXM release-keys"
 
-BUILD_FINGERPRINT := Redmi/sweet_global/sweet:11/RKQ1.200826.002/V12.5.4.0.RKFMIXM:user/release-keys
+BUILD_FINGERPRINT := Redmi/sweet_global/sweet:11/RKQ1.200826.002/V12.5.9.0.RKFMIXM:user/release-keys
