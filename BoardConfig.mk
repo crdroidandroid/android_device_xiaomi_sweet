@@ -7,7 +7,7 @@
 BUILD_BROKEN_DUP_RULES := true
 
 # Display density
-TARGET_SCREEN_DENSITY := 440
+TARGET_SCREEN_DENSITY := 410
 
 # Inherit from sm6150-common
 -include device/xiaomi/sm6150-common/BoardConfigCommon.mk
