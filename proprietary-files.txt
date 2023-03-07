@@ -43,6 +43,7 @@ vendor/lib/soundfx/libswgamedap.so
 vendor/lib/soundfx/libswvqe.so
 
 # Audio hardware
+system/lib/libxlog.so
 vendor/lib/hw/audio.primary.sm6150.so
 vendor/lib/vndk/libxlog.so
 vendor/lib/liba2dpoffload.so
@@ -310,7 +311,6 @@ vendor/etc/screen_light.xml
 vendor/firmware/CAMERA_ICP.elf
 
 # Camera prebuilt interfaces
-system_ext/lib64/vendor.qti.hardware.camera.device@3.5.so
 vendor/bin/hw/android.hardware.camera.provider@2.4-service_64
 vendor/lib/hw/android.hardware.camera.provider@2.4-impl.so
 vendor/lib/android.hardware.camera.provider@2.4-external.so
@@ -401,6 +401,7 @@ vendor/lib/libpn553_fw.so
 # Sensors
 vendor/etc/sensors/hals.conf
 vendor/lib64/libnotifyaudiohal.so
+vendor/lib64/libsensor_cal_v2.so
 vendor/lib64/libsensorcal.so
 vendor/lib64/libsensorslog.so
 vendor/lib64/libsns_fastRPC_util.so
