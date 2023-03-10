@@ -334,13 +334,8 @@ vendor/lib64/vendor.qti.hardware.camera.device@2.0.so
 vendor/lib64/vendor.qti.hardware.camera.device@3.5.so
 
 # Charger
-vendor/bin/hw/android.hardware.health@2.1-service
-vendor/bin/batteryd
 vendor/bin/batterysecret
-vendor/etc/init/android.hardware.health@2.1-service.rc
-vendor/etc/init/init.batteryd.rc
 vendor/etc/init/init.batterysecret.rc
--vendor/etc/vintf/manifest/android.hardware.health@2.1.xml
 
 # Consumer IR
 vendor/lib64/hw/consumerir.default.so:vendor/lib64/hw/consumerir.sm6150.so
