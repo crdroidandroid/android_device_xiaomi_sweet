@@ -36,12 +36,6 @@ vendor/firmware/awinic/aw882xx_rcv_reg_r.bin
 vendor/firmware/awinic/aw882xx_spk_reg_l.bin
 vendor/firmware/awinic/aw882xx_spk_reg_r.bin
 
-# Audio FX modules
-vendor/lib/soundfx/libhwdap.so
-vendor/lib/soundfx/libmisoundfx.so
-vendor/lib/soundfx/libswgamedap.so
-vendor/lib/soundfx/libswvqe.so
-
 # Audio hardware
 vendor/lib/hw/audio.primary.sm6150.so
 vendor/lib/vndk/libxlog.so
@@ -238,7 +232,6 @@ vendor/lib64/camera/components/libdepthmapwrapper.so
 vendor/lib64/camera/components/libmmcamera_cac3.so
 
 # Camera configs
-vendor/camera/fonts/FZMiaoWuJW.ttf
 vendor/etc/camera/102_SummerDay.png
 vendor/etc/camera/103_Fantasy.png
 vendor/etc/camera/104_Meet.png
@@ -310,7 +303,6 @@ vendor/etc/screen_light.xml
 vendor/firmware/CAMERA_ICP.elf
 
 # Camera prebuilt interfaces
-system_ext/lib64/vendor.qti.hardware.camera.device@3.5.so
 vendor/bin/hw/android.hardware.camera.provider@2.4-service_64
 vendor/lib/hw/android.hardware.camera.provider@2.4-impl.so
 vendor/lib/android.hardware.camera.provider@2.4-external.so
@@ -402,6 +394,7 @@ vendor/lib64/libsns_fastRPC_util.so
 vendor/lib64/libsnsapi.so
 vendor/lib64/libsnsdiaglog.so
 vendor/lib64/libssc.so
+vendor/lib64/libssc_default_listener.so
 vendor/lib64/libssccalapi.so
 vendor/lib64/libultrasound.so
 vendor/lib64/sensors.elliptic.so
