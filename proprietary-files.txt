@@ -45,9 +45,6 @@ vendor/lib/liba2dpoffload.so
 vendor/lib/libaudio_log_utils.so
 vendor/lib/libaudioroute_ext.so
 
-# Audio hardware (sound trigger) - from sunfish
-vendor/lib/hw/sound_trigger.primary.sm6150.so|fcfd71f5aceb1a4aad6dda211eebcc4e3ff605cb
-
 # Camera - from V13.0.2.0.RHGMIXM
 vendor/lib64/camera/com.qti.sensor.sweet_gc02m1.so|a5e9515a6734b3842df176831a53e6622ec84c5b
 vendor/lib64/camera/com.qti.sensor.sweet_imx355.so|ae1f4d1e36302f1e8c8bfc04c146fc35ce716853
