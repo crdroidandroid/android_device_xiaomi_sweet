@@ -18,7 +18,7 @@ static const variant_info_t sweet_global_info = {
     .mod_device = "sweet_global",
     .marketname = "Redmi Note 10 Pro",
     .model = "M2101K6G",
-    .build_fingerprint = "Redmi/sweet_global/sweet:13/TKQ1.221013.002/V14.0.2.0.TKFMIXM:user/release-keys",
+    .build_fingerprint = "Redmi/sweet_global/sweet:13/RKQ1.210614.002/V14.0.4.0.TKFMIXM:user/release-keys",
 
     .nfc = true,
 };
@@ -32,7 +32,7 @@ static const variant_info_t sweet_eea_info = {
     .mod_device = "sweet_eea_global",
     .marketname = "Redmi Note 10 Pro",
     .model = "M2101K6G",
-    .build_fingerprint = "Redmi/sweet_eea/sweet:13/RKQ1.210614.002/V14.0.2.0.TKFEUXM:user/release-keys",
+    .build_fingerprint = "Redmi/sweet_eea/sweet:13/RKQ1.210614.002/V14.0.5.0.TKFEUXM:user/release-keys",
 
     .nfc = true,
 };
@@ -74,7 +74,7 @@ static const variant_info_t sweet_jp_info = {
     .mod_device = "sweet_global",
     .marketname = "Redmi Note 10 Pro",
     .model = "M2101K6R",
-    .build_fingerprint = "Redmi/sweet_global/sweet:13/TKQ1.221013.002/V14.0.2.0.TKFMIXM:user/release-keys",
+    .build_fingerprint = "Redmi/sweet_global/sweet:13/RKQ1.210614.002/V14.0.4.0.TKFMIXM:user/release-keys",
 
     .nfc = true,
 };
@@ -88,7 +88,7 @@ static const variant_info_t sweet_tl_info = {
     .mod_device = "sweet_global",
     .marketname = "Redmi Note 10 Pro",
     .model = "M2101K6T",
-    .build_fingerprint = "Redmi/sweet_global/sweet:13/TKQ1.221013.002/V14.0.2.0.TKFMIXM:user/release-keys",
+    .build_fingerprint = "Redmi/sweet_global/sweet:13/RKQ1.210614.002/V14.0.4.0.TKFMIXM:user/release-keys",
 
     .nfc = true,
 };
@@ -144,7 +144,7 @@ static const variant_info_t sweet_tw_info = {
     .mod_device = "sweet_tw_global",
     .marketname = "Redmi Note 10 Pro",
     .model = "M2101K6G",
-    .build_fingerprint = "Redmi/sweet_global/sweet:13/TKQ1.221013.002/V14.0.2.0.TKFMIXM:user/release-keys",
+    .build_fingerprint = "Redmi/sweet_global/sweet:13/RKQ1.210614.002/V14.0.4.0.TKFMIXM:user/release-keys",
 
     .nfc = true,
 };
