@@ -83,7 +83,6 @@ vendor/lib64/camera/fdconfigvideolite.bin
 vendor/lib64/hw/camera.qcom.so
 vendor/lib64/hw/com.qti.chi.override.so
 vendor/lib64/libFaceGrade.so
-vendor/lib64/libMegviiFacepp-0.5.2.so
 vendor/lib64/libPSNPE.so
 vendor/lib64/libSNPE.so
 vendor/lib64/libVDClearShot.so
@@ -106,7 +105,6 @@ vendor/lib64/libdualcam_video_optical_zoom.so
 vendor/lib64/libft2vendor.so
 vendor/lib64/libhta.so
 vendor/lib64/libhvx_interface.so
-vendor/lib64/libmegface.so
 vendor/lib64/libmiai_portraitsupernight.so
 vendor/lib64/libmialgo_fs.so
 vendor/lib64/libmialgo_ie_capture.so
@@ -303,29 +301,6 @@ vendor/etc/screen_light.xml
 
 # Camera firmware
 vendor/firmware/CAMERA_ICP.elf
-
-# Camera prebuilt interfaces
-vendor/bin/hw/android.hardware.camera.provider@2.4-service_64
-vendor/lib/hw/android.hardware.camera.provider@2.4-impl.so
-vendor/lib/android.hardware.camera.provider@2.4-external.so
-vendor/lib/android.hardware.camera.provider@2.4-legacy.so
-vendor/lib/vendor.qti.hardware.camera.device@1.0.so
-vendor/lib/vendor.qti.hardware.camera.device@2.0.so
-vendor/lib/vendor.qti.hardware.camera.device@3.5.so
-vendor/lib64/hw/android.hardware.camera.provider@2.4-impl.so
-vendor/lib64/android.hardware.camera.provider@2.4-external.so
-vendor/lib64/android.hardware.camera.provider@2.4-legacy.so
-vendor/lib64/camera.device@1.0-impl.so
-vendor/lib64/camera.device@3.2-impl.so
-vendor/lib64/camera.device@3.3-impl.so
-vendor/lib64/camera.device@3.4-external-impl.so
-vendor/lib64/camera.device@3.4-impl.so
-vendor/lib64/camera.device@3.5-external-impl.so
-vendor/lib64/camera.device@3.5-impl.so
-vendor/lib64/camera.device@3.6-external-impl.so
-vendor/lib64/vendor.qti.hardware.camera.device@1.0.so
-vendor/lib64/vendor.qti.hardware.camera.device@2.0.so
-vendor/lib64/vendor.qti.hardware.camera.device@3.5.so
 
 # Charger
 vendor/bin/batterysecret
