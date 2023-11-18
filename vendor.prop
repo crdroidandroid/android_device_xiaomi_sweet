@@ -33,9 +33,5 @@ ro.vendor.display.ad.hdr_calib_data=/vendor/etc/hdr_config.cfg
 ro.vendor.display.sensortype=2
 vendor.display.override_doze_mode=1
 
-# Display Refresh Rate
-vendor.display.disable_metadata_dynamic_fps=1
-vendor.display.skip_refresh_rate_change=1
-
 # Fluence
 ro.vendor.audio.sdk.fluencetype=fluence
