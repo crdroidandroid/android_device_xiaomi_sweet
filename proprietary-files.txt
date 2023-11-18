@@ -334,20 +334,6 @@ vendor/etc/init/init.batterysecret.rc
 # Consumer IR
 vendor/lib64/hw/consumerir.default.so:vendor/lib64/hw/consumerir.sm6150.so
 
-# Display
-vendor/etc/qdcm_calib_data_Dual_nt36850_cmd_mode_dsi_truly_panel_without_DSC.xml
-vendor/etc/qdcm_calib_data_Dual_s6e3ha3_amoled_cmd_mode_dsi_panel.xml
-vendor/etc/qdcm_calib_data_Sharp_2k_cmd_mode_qsync_dsi_panel.xml
-vendor/etc/qdcm_calib_data_Sharp_2k_video_mode_qsync_dsi_panel.xml
-vendor/etc/qdcm_calib_data_Sharp_fhd_cmd_mode_qsync_dsi_panel.xml
-vendor/etc/qdcm_calib_data_Sharp_fhd_video_mode_qsync_dsi_panel.xml
-vendor/etc/qdcm_calib_data_nt36672c_fhd_plus_video_mode_dsi_panel.xml
-vendor/etc/qdcm_calib_data_rm69298_amoled_fhd+_cmd_mode_dsi_truly_panel.xml
-vendor/etc/qdcm_calib_data_rm69298_amoled_fhd+_video_mode_dsi_truly_panel.xml
-vendor/etc/qdcm_calib_data_sharp_1080p_120hz_dual_dsi_cmd_mode_panel.xml
-vendor/etc/qdcm_calib_data_xiaomi_k6_38_0c_0a_fhd_dsc_video_dsi_panel.xml|0161d0800884d4e871154897646fec0199d97d5e
-vendor/etc/qdcm_calib_data_xiaomi_k6_38_0e_0b_fhd_dsc_video_dsi_panel.xml|4595171fbaa0cc92d4083ec08626af92d14232ce
-
 # Fingerprint
 vendor/lib64/hw/fingerprint.fortsense.so:vendor/lib64/hw/fingerprint.fortsense.sm6150.so
 vendor/lib64/hw/fingerprint.fpc.so:vendor/lib64/hw/fingerprint.fpc.default.so:vendor/lib64/hw/fingerprint.fpc.sm6150.so
