@@ -37,7 +37,7 @@ DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/manifest.xml
 # Kernel
 BOARD_BOOT_HEADER_VERSION := 2
 BOARD_KERNEL_BASE := 0x00000000
-TARGET_KERNEL_CONFIG := sweet_defconfig
+TARGET_KERNEL_CONFIG += vendor/sweet.config
 
 # Recovery
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab.qcom
