@@ -25,7 +25,7 @@ PRODUCT_AAPT_PREF_CONFIG := xhdpi
 
 # Display
 PRODUCT_PACKAGES += \
-    libsdmcore-shim
+    hwcomposer.qcom
 
 # fastbootd
 PRODUCT_PACKAGES += \
