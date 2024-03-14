@@ -32,7 +32,7 @@ static const variant_info_t sweet_eea_info = {
     .mod_device = "sweet_eea_global",
     .marketname = "Redmi Note 10 Pro",
     .model = "M2101K6G",
-    .build_fingerprint = "Redmi/sweet_eea/sweet:13/RKQ1.221013.002/V14.0.7.0.TKFEUXM:user/release-keys",
+    .build_fingerprint = "Redmi/sweet_eea/sweet:13/RKQ1.210614.002/V14.0.9.0.TKFEUXM:user/release-keys",
 
     .nfc = true,
 };
