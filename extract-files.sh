@@ -29,6 +29,10 @@ function blob_fixup() {
             [ "$2" = "" ] && return 0
             "${PATCHELF}" --replace-needed "libstagefright_foundation.so" "libstagefright_foundation-v33.so" "${2}"
             ;;
+        vendor/lib/libaudioroute_ext.so | vendor/lib/hw/audio.primary.sm6150.so)
+            [ "$2" = "" ] && return 0
+            "${PATCHELF}" --replace-needed "libaudioroute.so" "libaudioroute-v34.so" "${2}"
+            ;;
         *)
             return 1
             ;;
