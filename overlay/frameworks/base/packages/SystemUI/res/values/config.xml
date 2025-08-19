@@ -32,4 +32,7 @@
 
     <!-- Doze: check proximity sensor before pulsing? -->
     <bool name="doze_proximity_check_before_pulse">false</bool>
+
+    <!-- The CPU temperature sensor path -->
+    <string name="config_cpuTempSensor" translatable="false">/sys/class/thermal/thermal_zone75/temp</string>
 </resources>
