@@ -112,6 +112,6 @@
     <!-- Custom seekbar -->
     <string name="custom_seekbar_value">Wartość: <xliff:g id="v">%s</xliff:g></string>
     <string name="custom_seekbar_default_value">domyślnie</string>
-    <string name="custom_seekbar_default_value_to_set">Domyślna wartość: <xliff:g id="v">%s</xliff:g>\nLong tap to set</string>
+    <string name="custom_seekbar_default_value_to_set">Domyślna wartość: <xliff:g id="v">%s</xliff:g>\nPrzytrzymaj aby ustawić</string>
     <string name="custom_seekbar_default_value_is_set">Ustawiono wartość domyślną</string>
 </resources>
