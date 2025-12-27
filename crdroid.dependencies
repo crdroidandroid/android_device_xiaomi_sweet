@@ -4,6 +4,11 @@
     "target_path": "device/xiaomi/sm6150-common"
   },
   {
+    "repository": "crdroidandroid/proprietary_vendor_xiaomi_dolby",
+    "target_path": "vendor/xiaomi/dolby",
+    "remote": "crdroid-gitlab"
+  },
+  {
     "repository": "crdroidandroid/proprietary_vendor_xiaomi_sweet",
     "target_path": "vendor/xiaomi/sweet",
     "remote": "crdroid-gitlab"
