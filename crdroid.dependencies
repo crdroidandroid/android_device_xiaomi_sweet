@@ -4,6 +4,10 @@
     "target_path": "device/xiaomi/sm6150-common"
   },
   {
+    "repository": "crdroidandroid/android_packages_apps_LunarisDolby",
+    "target_path": "packages/apps/LunarisDolby"
+  },
+  {
     "repository": "crdroidandroid/proprietary_vendor_xiaomi_dolby",
     "target_path": "vendor/xiaomi/dolby",
     "remote": "crdroid-gitlab"
