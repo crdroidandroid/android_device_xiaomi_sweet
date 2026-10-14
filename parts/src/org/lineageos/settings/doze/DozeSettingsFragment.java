@@ -17,8 +17,11 @@
 
 package org.lineageos.settings.doze;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Looper;
+
 import androidx.preference.ListPreference;
 import androidx.preference.Preference;
 import androidx.preference.Preference.OnPreferenceChangeListener;
@@ -31,34 +34,42 @@ import org.lineageos.settings.utils.FileUtils;
 public class DozeSettingsFragment extends SettingsBasePreferenceFragment
         implements OnPreferenceChangeListener {
 
-    private ListPreference mDozeBrightnessPreference;
+    private final Handler mHandler = new Handler(Looper.getMainLooper());
 
-    private Handler mHandler = new Handler();
+    private ListPreference mDozeBrightnessPreference;
 
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
         setPreferencesFromResource(R.xml.doze_settings, rootKey);
 
-        mDozeBrightnessPreference = (ListPreference) findPreference(DozeUtils.DOZE_BRIGHTNESS_KEY);
-        mDozeBrightnessPreference.setOnPreferenceChangeListener(this);
+        mDozeBrightnessPreference = findPreference(DozeUtils.DOZE_BRIGHTNESS_KEY);
+        if (mDozeBrightnessPreference == null) {
+            return;
+        }
 
         if (!FileUtils.isFileWritable(DozeUtils.DOZE_MODE_PATH)) {
             getPreferenceScreen().removePreference(mDozeBrightnessPreference);
-        } else {
-            DozeUtils.updateDozeBrightnessIcon(getContext(), mDozeBrightnessPreference);
+            mDozeBrightnessPreference = null;
+            return;
         }
+
+        mDozeBrightnessPreference.setOnPreferenceChangeListener(this);
+        DozeUtils.updateDozeBrightnessIcon(mDozeBrightnessPreference,
+                DozeUtils.getDozeBrightness(requireContext()));
     }
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-        if (DozeUtils.DOZE_BRIGHTNESS_KEY.equals(preference.getKey())) {
-            DozeUtils.setDozeMode((String) newValue);
+        if (!DozeUtils.DOZE_BRIGHTNESS_KEY.equals(preference.getKey())) {
+            return true;
         }
 
-        mHandler.post(() -> {
-            DozeUtils.checkDozeService(getActivity());
-            DozeUtils.updateDozeBrightnessIcon(getContext(), mDozeBrightnessPreference);
-        });
+        final String brightness = (String) newValue;
+        DozeUtils.applyDozeBrightness(brightness);
+        DozeUtils.updateDozeBrightnessIcon(mDozeBrightnessPreference, brightness);
+
+        final Context appContext = requireContext().getApplicationContext();
+        mHandler.post(() -> DozeUtils.checkDozeService(appContext));
 
         return true;
     }

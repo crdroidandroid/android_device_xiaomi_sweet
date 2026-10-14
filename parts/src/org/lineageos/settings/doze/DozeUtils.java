@@ -18,7 +18,6 @@
 package org.lineageos.settings.doze;
 
 import static android.provider.Settings.Secure.DOZE_ALWAYS_ON;
-import static android.provider.Settings.Secure.DOZE_ENABLED;
 
 import android.content.Context;
 import android.content.Intent;
@@ -28,17 +27,17 @@ import android.hardware.display.AmbientDisplayConfiguration;
 import android.os.UserHandle;
 import android.provider.Settings;
 import android.util.Log;
+
 import androidx.preference.ListPreference;
 import androidx.preference.PreferenceManager;
 
 import org.lineageos.settings.R;
+import org.lineageos.settings.sensors.SensorsUtils;
 import org.lineageos.settings.utils.FileUtils;
 
 public final class DozeUtils {
     private static final String TAG = "DozeUtils";
     private static final boolean DEBUG = false;
-
-    private static final String DOZE_INTENT = "com.android.systemui.doze.pulse";
 
     protected static final String DOZE_BRIGHTNESS_KEY = "doze_brightness";
 
@@ -51,24 +50,27 @@ public final class DozeUtils {
     protected static final String DOZE_BRIGHTNESS_HBM = "1";
     protected static final String DOZE_BRIGHTNESS_AUTO = "2";
 
+    private DozeUtils() {
+        // This class is not supposed to be instantiated
+    }
+
     public static void onBootCompleted(Context context) {
         checkDozeService(context);
         restoreDozeModes(context);
     }
+
     public static void startService(Context context) {
-        if (DEBUG)
-            Log.d(TAG, "Starting service");
+        if (DEBUG) Log.d(TAG, "Starting service");
         context.startServiceAsUser(new Intent(context, DozeService.class), UserHandle.CURRENT);
     }
 
     protected static void stopService(Context context) {
-        if (DEBUG)
-            Log.d(TAG, "Stopping service");
+        if (DEBUG) Log.d(TAG, "Stopping service");
         context.stopServiceAsUser(new Intent(context, DozeService.class), UserHandle.CURRENT);
     }
 
     public static void checkDozeService(Context context) {
-        if (isAlwaysOnEnabled(context) || sensorsEnabled(context)) {
+        if (sensorsEnabled(context)) {
             startService(context);
         } else {
             stopService(context);
@@ -76,10 +78,23 @@ public final class DozeUtils {
     }
 
     private static void restoreDozeModes(Context context) {
-        if (isAlwaysOnEnabled(context) && !isDozeAutoBrightnessEnabled(context)) {
-            setDozeMode(PreferenceManager.getDefaultSharedPreferences(context).getString(
-                    DOZE_BRIGHTNESS_KEY, String.valueOf(DOZE_BRIGHTNESS_LBM)));
+        if (FileUtils.isFileWritable(DOZE_MODE_PATH)) {
+            applyDozeBrightness(getDozeBrightness(context));
         }
+    }
+
+    protected static String getDozeBrightness(Context context) {
+        return PreferenceManager.getDefaultSharedPreferences(context)
+                .getString(DOZE_BRIGHTNESS_KEY, DOZE_BRIGHTNESS_LBM);
+    }
+
+    protected static boolean applyDozeBrightness(String brightness) {
+        if (DOZE_BRIGHTNESS_HBM.equals(brightness)) {
+            return setDozeMode(DOZE_MODE_HBM);
+        } else if (DOZE_BRIGHTNESS_LBM.equals(brightness)) {
+            return setDozeMode(DOZE_MODE_LBM);
+        }
+        return false;
     }
 
     protected static boolean enableAlwaysOn(Context context, boolean enable) {
@@ -106,36 +121,33 @@ public final class DozeUtils {
     }
 
     protected static boolean isDozeAutoBrightnessEnabled(Context context) {
-        return PreferenceManager.getDefaultSharedPreferences(context)
-                .getString(DOZE_BRIGHTNESS_KEY, DOZE_BRIGHTNESS_LBM)
-                .equals(DOZE_BRIGHTNESS_AUTO);
+        return DOZE_BRIGHTNESS_AUTO.equals(getDozeBrightness(context));
     }
 
     public static boolean sensorsEnabled(Context context) {
         return isDozeAutoBrightnessEnabled(context);
     }
 
+    /** Kept for existing callers; use {@link SensorsUtils#getSensor} instead. */
     protected static Sensor getSensor(SensorManager sm, String type) {
-        for (Sensor sensor : sm.getSensorList(Sensor.TYPE_ALL)) {
-            if (type.equals(sensor.getStringType())) {
-                return sensor;
-            }
-        }
-        return null;
+        return SensorsUtils.getSensor(sm, type);
     }
 
     protected static void updateDozeBrightnessIcon(Context context, ListPreference preference) {
-        switch (PreferenceManager.getDefaultSharedPreferences(context).getString(
-                DOZE_BRIGHTNESS_KEY, DOZE_BRIGHTNESS_LBM)) {
-            case DozeUtils.DOZE_BRIGHTNESS_LBM:
-                preference.setIcon(R.drawable.ic_doze_brightness_low);
-                break;
-            case DozeUtils.DOZE_BRIGHTNESS_HBM:
-                preference.setIcon(R.drawable.ic_doze_brightness_high);
-                break;
-            case DozeUtils.DOZE_BRIGHTNESS_AUTO:
-                preference.setIcon(R.drawable.ic_doze_brightness_auto);
-                break;
+        updateDozeBrightnessIcon(preference, getDozeBrightness(context));
+    }
+
+    protected static void updateDozeBrightnessIcon(ListPreference preference,
+            String brightness) {
+        if (preference == null) {
+            return;
+        }
+        if (DOZE_BRIGHTNESS_HBM.equals(brightness)) {
+            preference.setIcon(R.drawable.ic_doze_brightness_high);
+        } else if (DOZE_BRIGHTNESS_AUTO.equals(brightness)) {
+            preference.setIcon(R.drawable.ic_doze_brightness_auto);
+        } else {
+            preference.setIcon(R.drawable.ic_doze_brightness_low);
         }
     }
 }

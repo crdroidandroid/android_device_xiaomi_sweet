@@ -23,6 +23,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.IBinder;
+import android.os.PowerManager;
 import android.util.Log;
 
 public class DozeService extends Service {
@@ -31,31 +32,53 @@ public class DozeService extends Service {
 
     private AodSensor mAodSensor;
 
+    private final BroadcastReceiver mScreenStateReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            final String action = intent.getAction();
+            if (Intent.ACTION_SCREEN_ON.equals(action)) {
+                onDisplayOn();
+            } else if (Intent.ACTION_SCREEN_OFF.equals(action)) {
+                onDisplayOff();
+            }
+        }
+    };
+
     @Override
     public void onCreate() {
-        if (DEBUG)
-            Log.d(TAG, "Creating service");
+        super.onCreate();
+        if (DEBUG) Log.d(TAG, "Creating service");
+
         mAodSensor = new AodSensor(this);
 
-        IntentFilter screenStateFilter = new IntentFilter();
+        final IntentFilter screenStateFilter = new IntentFilter();
         screenStateFilter.addAction(Intent.ACTION_SCREEN_ON);
         screenStateFilter.addAction(Intent.ACTION_SCREEN_OFF);
-        registerReceiver(mScreenStateReceiver, screenStateFilter);
+        registerReceiver(mScreenStateReceiver, screenStateFilter,
+                Context.RECEIVER_NOT_EXPORTED);
+
+        final PowerManager pm = getSystemService(PowerManager.class);
+        if (pm != null && !pm.isInteractive()) {
+            onDisplayOff();
+        }
     }
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        if (DEBUG)
-            Log.d(TAG, "Starting service");
+        if (DEBUG) Log.d(TAG, "Starting service");
         return START_STICKY;
     }
 
     @Override
     public void onDestroy() {
-        if (DEBUG)
-            Log.d(TAG, "Destroying service");
+        if (DEBUG) Log.d(TAG, "Destroying service");
+        try {
+            unregisterReceiver(mScreenStateReceiver);
+        } catch (IllegalArgumentException e) {
+            // Not registered
+        }
+        mAodSensor.destroy();
         super.onDestroy();
-        this.unregisterReceiver(mScreenStateReceiver);
     }
 
     @Override
@@ -64,29 +87,14 @@ public class DozeService extends Service {
     }
 
     private void onDisplayOn() {
-        if (DEBUG)
-            Log.d(TAG, "Display on");
-        if (DozeUtils.isDozeAutoBrightnessEnabled(this)) {
-            mAodSensor.disable();
-        }
+        if (DEBUG) Log.d(TAG, "Display on");
+        mAodSensor.disable();
     }
 
     private void onDisplayOff() {
-        if (DEBUG)
-            Log.d(TAG, "Display off");
-        if (DozeUtils.isDozeAutoBrightnessEnabled(this)) {
+        if (DEBUG) Log.d(TAG, "Display off");
+        if (DozeUtils.isDozeAutoBrightnessEnabled(this) && DozeUtils.isAlwaysOnEnabled(this)) {
             mAodSensor.enable();
         }
     }
-
-    private BroadcastReceiver mScreenStateReceiver = new BroadcastReceiver() {
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            if (intent.getAction().equals(Intent.ACTION_SCREEN_ON)) {
-                onDisplayOn();
-            } else if (intent.getAction().equals(Intent.ACTION_SCREEN_OFF)) {
-                onDisplayOff();
-            }
-        }
-    };
 }

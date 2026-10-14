@@ -21,39 +21,62 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
+import android.os.Handler;
+import android.os.HandlerThread;
 import android.util.Log;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.Future;
+
+import org.lineageos.settings.sensors.SensorsUtils;
 
 public class AodSensor implements SensorEventListener {
     private static final boolean DEBUG = false;
     private static final String TAG = "AodSensor";
 
-    private SensorManager mSensorManager;
-    private Sensor mSensor;
-    private Context mContext;
-    private ExecutorService mExecutorService;
+    private static final String SENSOR_TYPE_AOD = "xiaomi.sensor.aod";
+
+    private static final float AOD_LIGHT_LOW = 3f;
+    private static final float AOD_LIGHT_HIGH = 4f;
+    private static final float AOD_LIGHT_DARK = 5f;
+
+    private final SensorManager mSensorManager;
+    private final Sensor mSensor;
+    private final HandlerThread mHandlerThread;
+    private final Handler mHandler;
+
+    private boolean mEnabled;
+    private String mLastMode;
 
     public AodSensor(Context context) {
-        mContext = context;
-        mSensorManager = mContext.getSystemService(SensorManager.class);
-        mSensor = DozeUtils.getSensor(mSensorManager, "xiaomi.sensor.aod");
-        mExecutorService = Executors.newSingleThreadExecutor();
-    }
+        mSensorManager = context.getSystemService(SensorManager.class);
+        mSensor = mSensorManager != null
+                ? SensorsUtils.getSensor(mSensorManager, SENSOR_TYPE_AOD) : null;
+        if (mSensor == null) {
+            Log.w(TAG, "AOD sensor not found, auto doze brightness unavailable");
+        }
 
-    private Future<?> submit(Runnable runnable) { return mExecutorService.submit(runnable); }
+        mHandlerThread = new HandlerThread(TAG);
+        mHandlerThread.start();
+        mHandler = new Handler(mHandlerThread.getLooper());
+    }
 
     @Override
     public void onSensorChanged(SensorEvent event) {
-        if (DEBUG) {
-            Log.d(TAG, "Got sensor event: " + event.values[0]);
+        final float value = event.values[0];
+        if (DEBUG) Log.d(TAG, "Got sensor event: " + value);
+
+        final String mode;
+        if (value == AOD_LIGHT_LOW || value == AOD_LIGHT_DARK) {
+            mode = DozeUtils.DOZE_MODE_LBM;
+        } else if (value == AOD_LIGHT_HIGH) {
+            mode = DozeUtils.DOZE_MODE_HBM;
+        } else {
+            return;
         }
 
-        if (event.values[0] == 3 || event.values[0] == 5) {
-            DozeUtils.setDozeMode(DozeUtils.DOZE_MODE_LBM);
-        } else if (event.values[0] == 4) {
-            DozeUtils.setDozeMode(DozeUtils.DOZE_MODE_HBM);
+        if (mode.equals(mLastMode)) {
+            return;
+        }
+        if (DozeUtils.setDozeMode(mode)) {
+            mLastMode = mode;
         }
     }
 
@@ -63,18 +86,33 @@ public class AodSensor implements SensorEventListener {
     }
 
     protected void enable() {
-        if (DEBUG) {
-            Log.d(TAG, "Enabling");
-        }
-        submit(() -> {
-            mSensorManager.registerListener(this, mSensor, SensorManager.SENSOR_DELAY_NORMAL);
+        mHandler.post(() -> {
+            if (mEnabled || mSensor == null) {
+                return;
+            }
+            if (DEBUG) Log.d(TAG, "Enabling");
+            mLastMode = null;
+            mEnabled = mSensorManager.registerListener(this, mSensor,
+                    SensorManager.SENSOR_DELAY_NORMAL, mHandler);
         });
     }
 
     protected void disable() {
-        if (DEBUG) {
-            Log.d(TAG, "Disabling");
+        mHandler.post(this::disableInternal);
+    }
+
+    protected void destroy() {
+        mHandler.removeCallbacksAndMessages(null);
+        mHandler.post(this::disableInternal);
+        mHandlerThread.quitSafely();
+    }
+
+    private void disableInternal() {
+        if (!mEnabled) {
+            return;
         }
-        submit(() -> { mSensorManager.unregisterListener(this, mSensor); });
+        if (DEBUG) Log.d(TAG, "Disabling");
+        mSensorManager.unregisterListener(this, mSensor);
+        mEnabled = false;
     }
 }
